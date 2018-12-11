@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CrossArt</title>
+
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:audio" content="">
+    <meta property="og:video" content="">
+    <meta property="og:locale" content="">
+    <meta property="og:site name" content="">
+    <meta name="metaDescription" content="">
+
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="apple-touch-icon" href="./img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon-180.png">
+    <link rel="mask-icon" href="./img/favicon-safari.svg" color="#FCFBF9">
+
+    <link rel="stylesheet" href="./fonts/stylesheet.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/jquery.fancybox.css">
+    <link rel="stylesheet" href="./css/styles.css?v=2">
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/inputmask.min.js"></script>
+    <script src="./js/jquery.fancybox.pack.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/barba.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js"></script>
+
+    <script src="./js/common.js?v=2"></script>
+    <script src="./js/barbacode.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZEMWmP3G1NHuo9dpC8lmnvqHPmVSVxrE&callback=initMap" async="" defer=""></script>
+
+
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+</head>
+<body>
+
+    <div class="mainwrap" id="barba-wrapper">
+        <div class="menu">
+            <div class="menu__burger">
+                <div class="menu-burger">
+                    <div class="burger"></div>
+                </div>
+            </div>
+            <div class="menu__bg"></div>
+            <div class="menu__logo">
+                <a href="index.html" class="menu-logo"></a>
+            </div>
+            <div class="menu__proj hiddenonpage">
+                <a href="project1.html" class="menu-proj">
+                    <div class="menu-proj__name">
+                        <span>Парк культуры</span>
+                    </div>
+                    <div class="menu-proj__type">
+                        <span>ресторан</span>
+                    </div>
+                </a>
+            </div>
+            <div class="menupanel">
+                <div class="menupanel-cont">
+                    <div class="menupanel__links">
+                        <div class="menupanel-links">
+                            <nav role="navigation">
+                                <div class="menupanel-links__item">
+                                    <a href="projects.html">Проекты</a>
+                                </div>
+                                <div class="menupanel-links__item">
+                                    <a href="about.html">Студия</a>
+                                </div>
+                                <div class="menupanel-links__item">
+                                    <a href="cost.html">Стоимость</a>
+                                </div>
+                                <div class="menupanel-links__item">
+                                    <a href="contacts.html">Контакты</a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="menupanel__contacts">
+                        <div class="menupanel-contacts">
+                            <div class="menupanel-contacts__mail">
+                                <a href="mailto:info@art-cross.ru">info@art-cross.ru</a>
+                            </div>
+                            <div class="menupanel-contacts__phone">
+                                <a href="tel:+7(920)027-88-87">+7 (920) 027-88-87</a>
+                            </div>
+                            <div class="menupanel-contacts__socs">
+                                <div class="footer-socs">
+                                    <a href="#" class="footer-socs__item footer-socs__item_fb">
+                                        <span></span>
+                                    </a>
+                                    <a href="#" class="footer-socs__item footer-socs__item_vk">
+                                        <span></span>
+                                    </a>
+                                    <a href="#" class="footer-socs__item footer-socs__item_in">
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="menupanel-contacts__by">
+                                <div class="footer-info">
+                                    <div class="footer-info__f12">
+                                        <a href="flat12.ru" target="_blank">
+                                            <span>Made by</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preloader">
+            <div class="preloader__item preloader__item_dark"></div>
+            <div class="preloader__item preloader__item_gold"></div>
+            <div class="preloader__item preloader__item_logo">
+                <img src="./img/preloader.svg" alt="">
+            </div>
+        </div>
+        <div class="barba-container containers-wrap" data-namespace="404">
+            <section>
+                <div class="container container_page container_notfound">
+                    <div class="notfound" data-aos="fade-up">
+                        <div class="notfound-cont">
+                            <div class="notfound__num">
+                                <span>404</span>
+                            </div>
+                            <div class="notfound__title">
+                                <h2 class="h1">Запрошенная страница <br>не существует</h2>
+                            </div>
+                            <div class="notfound__dscrp">
+                                <span>Возможно, страница была перемещена, удалена или <br>вы ошиблись с вводом адреса</span>
+                            </div>
+                            <div class="notfound__button">
+                                <a href="index.html" class="btn btn_ar">
+                                    <span>На главную</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="notfound-crossbg"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="totop">
+            <span>Наверх</span>
+        </div>
+
+    </div>
+
+    <div class="pp pp_agree" data-pp="agree">
+        <div class="pp-bg"></div>
+        <div class="pp-cross"></div>
+        <div class="pp-container">
+            <div class="pp-content">
+                <div class="pp__title">
+                    <h3>Согласие посетителя сайта на обработку персональных данных</h3>
+                </div>
+                <div class="pp__articles">
+                    <article>
+                        <div class="article">
+                            <p>Настоящим я подтверждаю, что переданные мной в ООО «Архистратиг» (далее – Общество), персональные данные: имя, фамилия, отчество, место проживания, номер мобильного телефона, адрес электронной почты являются достоверными и могут обрабатываться Обществом и его уполномоченными представителями с целью предоставления мне информации о продуктах и услугах Общества.</p>
+                            <p>Настоящим я даю согласие Обществу (603159, г.Нижний Новгород, ул.Карла Маркса, д.12, кв.82, ОГРН 1125257004839) и его уполномоченным представителям на обработку моих персональных данных, указанных на сайте art-cross.ru (далее – Сайт), на любое действие (операцию) или совокупность действий (операций), совершаемых с моими персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных с использованием средств автоматизации, в том числе в информационно-телекоммуникационных сетях, а также на передачу (в том числе трансграничную) этих персональных данных уполномоченным представителям Общества.</p>
+                            <p>Настоящим я даю согласие на размещение своего мнения о применении продукции Общества и моих вопросов на Сайте. Также даю свое согласие на предоставление Обществом моих персональных данных как посетителя Сайта партнерами, с которыми сотрудничает Общество.</p>
+                            <p>Согласие дается сроком на 5 лет и может быть в любой момент мной отозвано путем направления письменного уведомления Общества по адресу: 603159, г.Нижний Новгород, ул.Карла Маркса, д.12, кв.82</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="pp__button">
+                    <div class="btn btn_cross">
+                        <span>Закрыть</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

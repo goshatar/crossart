@@ -1,0 +1,17 @@
+﻿<krpano version="1.18">
+
+	<preview url="014.tiles/preview.jpg" />
+
+	<image>
+		<cube url="014.tiles/pano_%s.jpg" />
+		<mobile>
+			<cube url="014.tiles/mobile_%s.jpg" />
+		</mobile>
+	</image>
+	
+	
+<view hlookat="0" vlookat="0" fovtype="MFOV" fov="110" fovmax="130" maxpixelzoom="1" limitview="range" vlookatmin="70" vlookatmax="-90" />
+
+
+
+</krpano>

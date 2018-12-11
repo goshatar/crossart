@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CrossArt</title>
+
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:audio" content="">
+    <meta property="og:video" content="">
+    <meta property="og:locale" content="">
+    <meta property="og:site name" content="">
+    <meta name="metaDescription" content="">
+
+    <link rel="icon" href="./img/favicon.ico">
+    <link rel="apple-touch-icon" href="./img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/favicon-120.png">
+    <!--<link rel="apple-touch-icon" sizes="144x144" href="./img/favicon-144.png">-->
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon-180.png">
+    <link rel="mask-icon" href="./img/favicon-safari.svg" color="#FCFBF9">
+
+    <link rel="stylesheet" href="./fonts/stylesheet.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/jquery.fancybox.css">
+    <link rel="stylesheet" href="./css/styles.css?v=2">
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/inputmask.min.js"></script>
+    <script src="./js/jquery.fancybox.pack.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/barba.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js"></script>
+
+    <script src="./js/common.js?v=2"></script>
+    <script src="./js/barbacode.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZEMWmP3G1NHuo9dpC8lmnvqHPmVSVxrE&callback=initMap" async="" defer=""></script>
+
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+</head>
+<body>
+
+    <div class="mainwrap" id="barba-wrapper">
+        <div class="menu">
+            <div class="menu__burger">
+                <div class="menu-burger">
+                    <div class="burger"></div>
+                </div>
+            </div>
+            <div class="menu__bg"></div>
+            <div class="menu__logo">
+                <a href="index.html" class="menu-logo"></a>
+            </div>
+            <div class="menu__proj hidden">
+                <a href="project1.html" class="menu-proj">
+                    <div class="menu-proj__name">
+                        <span>Парк культуры</span>
+                    </div>
+                    <div class="menu-proj__type">
+                        <span>ресторан</span>
+                    </div>
+                </a>
+            </div>
+            <div class="menupanel">
+                <div class="menupanel-cont">
+                    <div class="menupanel__links">
+                        <div class="menupanel-links">
+                            <nav role="navigation">
+                                <div class="menupanel-links__item">
+                                    <a href="projects.html">Проекты</a>
+                                </div>
+                                <div class="menupanel-links__item">
+                                    <a href="about.html">Студия</a>
+                                </div>
+                                <div class="menupanel-links__item">
+                                    <a href="cost.html">Стоимость</a>
+                                </div>
+                                <div class="menupanel-links__item">
+                                    <a href="contacts.html">Контакты</a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="menupanel__contacts">
+                        <div class="menupanel-contacts">
+                            <div class="menupanel-contacts__mail">
+                                <a href="mailto:info@art-cross.ru">info@art-cross.ru</a>
+                            </div>
+                            <div class="menupanel-contacts__phone">
+                                <a href="tel:+7(920)027-88-87">+7 (920) 027-88-87</a>
+                            </div>
+                            <div class="menupanel-contacts__socs">
+                                <div class="footer-socs">
+                                    <a href="#" class="footer-socs__item footer-socs__item_fb">
+                                        <span></span>
+                                    </a>
+                                    <a href="#" class="footer-socs__item footer-socs__item_vk">
+                                        <span></span>
+                                    </a>
+                                    <a href="#" class="footer-socs__item footer-socs__item_in">
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="menupanel-contacts__by">
+                                <div class="footer-info">
+                                    <div class="footer-info__f12">
+                                        <a href="flat12.ru" target="_blank">
+                                            <span>Made by</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preloader">
+            <div class="preloader__item preloader__item_dark"></div>
+            <div class="preloader__item preloader__item_gold"></div>
+            <div class="preloader__item preloader__item_logo">
+                <img src="./img/preloader.svg" alt="">
+            </div>
+        </div>
+        <div class="barba-container containers-wrap" data-namespace="index">
+            <section>
+                <div class="container container_galls">
+                    <div class="galls">
+                        <div class="galls-cont">
+                            <div class="galls-cont__left">
+                                <div class="galls__slider">
+                                    <div class="swiper-container galls-slider">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide" data-projname="Парк Культуры" data-projtype="ресторан" data-projlink="project1.html">
+                                                <img src="./img/maingal-1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide" data-projname="Виноградо" data-projtype="ресторааан" data-projlink="project2.html">
+                                                <img src="./img/maingal-1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide" data-projname="Novo" data-projtype="ресторааааааан" data-projlink="project3.html">
+                                                <img src="./img/maingal-1.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-navigation">
+                                            <div class="swiper-button swiper-button-prev"></div>
+                                            <div class="swiper-button swiper-button-next"></div>
+                                        </div>
+                                    </div>
+                                    <div class="galls-proj">
+                                        <a href="project1.html" class="menu-proj">
+                                            <div class="menu-proj__name">
+                                                <span>Парк культуры</span>
+                                            </div>
+                                            <div class="menu-proj__type">
+                                                <span>ресторан</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="galls-cont__right">
+                                <div class="galls__slider-r">
+                                    <div class="swiper-container galls-slider-r">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="./img/maingal-1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="./img/maingal-1.jpg" alt="">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="./img/maingal-1.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                                            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                                            <span class="swiper-pagination-bullet"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="galls__info">
+                                    <div class="galls-info">
+                                        <div class="galls-info__number">
+                                            <span>52+</span>
+                                        </div>
+                                        <div class="galls-info__text">
+                                            <span>Реализованных пректов</span>
+                                        </div>
+                                        <div class="galls-info__all">
+                                            <a href="projects.html">Все проекты</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container container_offers">
+                    <div class="offers cols">
+                        <div class="offers-cont cols-cont">
+                            <div class="offers__info cols__info">
+                                <div class="offers-info cols-info">
+                                    <div class="title offers-info__title cols-info__title" data-aos="fade-up">
+                                        <h2 class="h1">Мы <br>предлагаем</h2>
+                                    </div>
+                                    <div class="offers-info__text cols-info__text" data-aos="fade-up">
+                                        <article>
+                                            <div class="article">
+                                                <p>Cross Art — дизайн студия с умным подходом к творчеству.</p>
+                                                <p>Пока вы строите планы на выходные, мы строим планы с учетом функций и особенностей помещения до полного и конечного утверждения вами. Контролируем зорким взглядом выполнение работ подрядчиками. </p>
+                                                <p>Благодаря этому удается быстро и грамотно решить все возникающие вопросы в процессе строительства.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offers__items cols__vis">
+                                <div class="cols-vis">
+                                    <div class="offers-items">
+                                        <div class="offers-items__block offers-items__block_1 pp_" data-pp="offer-1" data-aos="fade-up">
+                                            <div class="offers-items-block__img">
+                                                <img src="./img/offers-item-1.png" alt="">
+                                                <div class="offers-items-block__hover-pic">
+                                                    <img src="./img/offers-item-hov-1.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="offers-items-block__title">
+                                                <h3>Дизайн-проекты частных и коммерческих интерьеров</h3>
+                                            </div>
+                                            <div class="offers-items-block__ar">
+                                                <div class="arlink">
+                                                    <div class="arlink-cont">
+                                                        <div class="arlink__ar arlink__ar_offer">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="offers-items__block offers-items__block_2 pp_" data-pp="offer-2" data-aos="fade-up">
+                                            <div class="offers-items-block__img">
+                                                <img src="./img/offers-item-2.png" alt="">
+                                                <div class="offers-items-block__hover-pic">
+                                                    <img src="./img/offers-item-hov-2.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="offers-items-block__title">
+                                                <h3>Подбор <br>и изготовление мебели и аксессуаров</h3>
+                                            </div>
+                                            <div class="offers-items-block__ar">
+                                                <div class="arlink">
+                                                    <div class="arlink-cont">
+                                                        <div class="arlink__ar arlink__ar_offer">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="offers-items__block offers-items__block_3 pp_" data-pp="offer-3" data-aos="fade-up">
+                                            <div class="offers-items-block__img">
+                                                <img src="./img/offers-item-3.png" alt="">
+                                                <div class="offers-items-block__hover-pic">
+                                                    <img src="./img/offers-item-hov-3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="offers-items-block__title">
+                                                <h3>Авторский надзор <br>и регулярный контроль</h3>
+                                            </div>
+                                            <div class="offers-items-block__ar">
+                                                <div class="arlink">
+                                                    <div class="arlink-cont">
+                                                        <div class="arlink__ar arlink__ar_offer">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arlink arlink_off" data-aos="fade-up">
+                            <a href="about.html" class="arlink-cont">
+                                <div class="arlink__txt">
+                                    <span>О студии</span>
+                                </div>
+                                <div class="arlink__ar">
+                                    <span></span>
+                                </div>
+                            </a>
+                            <div class="arlink-cont off off-1">
+                                <div class="arlink__ar arlink__ar_offer">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="arlink-cont off off-2">
+                                <div class="arlink__ar arlink__ar_offer">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="arlink-cont off off-3">
+                                <div class="arlink__ar arlink__ar_offer">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cross-bg"></div>
+                    </div>
+                    <div class="offers-pp" data-pp="offer-1">
+                        <div class="pp-cross offers-pp-cross"></div>
+                        <div class="offers-pp-cont">
+                            <div class="title offers-pp__title">
+                                <h3>Дизайн-проекты частных <br>и коммерческих интерьеров</h3>
+                            </div>
+                            <div class="offers-pp__text">
+                                <article>
+                                    <div class="article">
+                                        <p>В первую очередь мы разрабатываем подробный дизайн-проект: от обмерного плана помещений до 3D-визуализации и полного комплекта рабочей документации для строительной бригады. Это является залогом успешного воплощения проекта в жизнь. </p>
+                                        <p>После выполнения и утверждения дизайн-проекта можно переходить к составлению сметы, подбору строительной бригады, формированию бюджета и начинать ремонт!</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="arlink">
+                                <a href="projects.html" class="arlink-cont">
+                                    <div class="arlink__txt">
+                                        <span>Реализованные проекты</span>
+                                    </div>
+                                    <div class="arlink__ar">
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="circlogo-bg"></div>
+                        </div>
+                    </div>
+                    <div class="offers-pp" data-pp="offer-2">
+                        <div class="pp-cross offers-pp-cross"></div>
+                        <div class="offers-pp-cont">
+                            <div class="title offers-pp__title">
+                                <h3>Дизайн-проекты частных <br>и коммерческих интерьеров</h3>
+                            </div>
+                            <div class="offers-pp__text">
+                                <article>
+                                    <div class="article">
+                                        <p>В первую очередь мы разрабатываем подробный дизайн-проект: от обмерного плана помещений до 3D-визуализации и полного комплекта рабочей документации для строительной бригады. Это является залогом успешного воплощения проекта в жизнь. </p>
+                                        <p>После выполнения и утверждения дизайн-проекта можно переходить к составлению сметы, подбору строительной бригады, формированию бюджета и начинать ремонт!</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="arlink">
+                                <a href="projects.html" class="arlink-cont">
+                                    <div class="arlink__txt">
+                                        <span>Реализованные проекты</span>
+                                    </div>
+                                    <div class="arlink__ar">
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="circlogo-bg"></div>
+                        </div>
+                    </div>
+                    <div class="offers-pp" data-pp="offer-3">
+                        <div class="pp-cross offers-pp-cross"></div>
+                        <div class="offers-pp-cont">
+                            <div class="title offers-pp__title">
+                                <h3>Дизайн-проекты частных <br>и коммерческих интерьеров</h3>
+                            </div>
+                            <div class="offers-pp__text">
+                                <article>
+                                    <div class="article">
+                                        <p>В первую очередь мы разрабатываем подробный дизайн-проект: от обмерного плана помещений до 3D-визуализации и полного комплекта рабочей документации для строительной бригады. Это является залогом успешного воплощения проекта в жизнь. </p>
+                                        <p>После выполнения и утверждения дизайн-проекта можно переходить к составлению сметы, подбору строительной бригады, формированию бюджета и начинать ремонт!</p>
+
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="arlink">
+                                <a href="projects.html" class="arlink-cont">
+                                    <div class="arlink__txt">
+                                        <span>Реализованные проекты</span>
+                                    </div>
+                                    <div class="arlink__ar">
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="circlogo-bg"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="sticky-containers">
+                    <div class="container container_tasty" id="container_tasty">
+                        <div class="slider-container_tasty cols">
+                            <div class="cols-cont scroll-canvas" id="scroll-canvas">
+                                <div class="scroll-canvas-cont">
+                                    <div class="cols__info">
+                                        <div class="cols-info">
+                                            <div class="title cols-info__title" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                                                <h2 class="h1">Самое <br>вкусное</h2>
+                                            </div>
+                                            <div class="cols-info__text" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                                                <article>
+                                                    <div class="article">
+                                                        <p>Студия Cross Art работает с частными и коммерческими интерьерами. Разрабатывает дизайн ресторанов, баров, шоурумов, загородных домов и квартир.</p>
+                                                        <p>Наш главный и неоспоримый идейный вдохновитель - Роман Докукин. Наш успех прост - 10 из 10 созданных нами общественных интерьеров становятся весьма популярными уже спустя неделю, потому что наша работа приносит нам не меньшее удовольствие, чем нашим заказчикам.</p>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="arlink arlink_light cols-info__arlink" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                                                <a href="projects.html" class="arlink-cont">
+                                                    <div class="arlink__txt">
+                                                        <span>Все проекты</span>
+                                                    </div>
+                                                    <div class="arlink__ar">
+                                                        <span></span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cols__vis cols__vis_projs">
+                                        <div class="cols-vis">
+                                            <div class="projs-cards">
+                                                <a class="projs-card" href="project.html" data-aos="fade-left">
+                                                    <div class="projs-card__img">
+                                                        <img src="./img/projs-pic-1.jpg" alt="" class="featured-image">
+                                                    </div>
+                                                    <div class="projs-card__info">
+                                                        <div class="projs-card-info__title">
+                                                            <h3>Парк Культуры</h3>
+                                                        </div>
+                                                        <div class="projs-card-info__lable projs-card-info__lable_new"></div>
+                                                        <div class="projs-card-info__tag">
+                                                            <span>ресторан</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="projs-card " href="project.html" data-aos="fade-left">
+                                                    <div class="projs-card__img">
+                                                        <img src="./img/projs-pic-2.jpg" alt="" class="featured-image">
+                                                    </div>
+                                                    <div class="projs-card__info">
+                                                        <div class="projs-card-info__title">
+                                                            <h3>Виноградо</h3>
+                                                        </div>
+                                                        <div class="projs-card-info__lable projs-card-info__lable_new"></div>
+                                                        <div class="projs-card-info__tag">
+                                                            <span>ресторан</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="projs-card " href="project.html" data-aos="fade-left">
+                                                    <div class="projs-card__img">
+                                                        <img src="./img/projs-pic-3.jpg" alt="" class="featured-image">
+                                                    </div>
+                                                    <div class="projs-card__info">
+                                                        <div class="projs-card-info__title">
+                                                            <h3>Novo</h3>
+                                                        </div>
+                                                        <div class="projs-card-info__lable projs-card-info__lable_new"></div>
+                                                        <div class="projs-card-info__tag">
+                                                            <span>ресторан</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="projs-card " href="project.html" data-aos="fade-left">
+                                                    <div class="projs-card__img">
+                                                        <img src="./img/projs-pic-1.jpg" alt="" class="featured-image">
+                                                    </div>
+                                                    <div class="projs-card__info">
+                                                        <div class="projs-card-info__title">
+                                                            <h3>Парк Культуры</h3>
+                                                        </div>
+                                                        <div class="projs-card-info__lable projs-card-info__lable_new"></div>
+                                                        <div class="projs-card-info__tag">
+                                                            <span>ресторан</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="projs-card " href="project.html" data-aos="fade-left">
+                                                    <div class="projs-card__img">
+                                                        <img src="./img/projs-pic-2.jpg" alt="" class="featured-image">
+                                                    </div>
+                                                    <div class="projs-card__info">
+                                                        <div class="projs-card-info__title">
+                                                            <h3>Виноградо</h3>
+                                                        </div>
+                                                        <div class="projs-card-info__lable projs-card-info__lable_new"></div>
+                                                        <div class="projs-card-info__tag">
+                                                            <span>ресторан</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="projs-card " href="project.html" data-aos="fade-left">
+                                                    <div class="projs-card__img">
+                                                        <img src="./img/projs-pic-3.jpg" alt="" class="featured-image">
+                                                    </div>
+                                                    <div class="projs-card__info">
+                                                        <div class="projs-card-info__title">
+                                                            <h3>Novo</h3>
+                                                        </div>
+                                                        <div class="projs-card-info__lable projs-card-info__lable_new"></div>
+                                                        <div class="projs-card-info__tag">
+                                                            <span>ресторан</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cross-bg cross-bg_dark"></div>
+                        </div>
+                    </div>
+                    <div class="container_tasty-ghost">
+                        <div id="tasty-ghost-line"></div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container container_map">
+                    <div class="cols">
+                        <div class="cols-cont">
+                            <div class="cols__info">
+                                <div class="cols-info">
+                                    <div class="title cols-info__title" data-aos="fade-up">
+                                        <h2 class="h1">География <br>наших <br>проектов</h2>
+                                    </div>
+                                    <div class="cols-info__text" data-aos="fade-up">
+                                        <article>
+                                            <div class="article">
+                                                <p>За время своего существования наша студия разработала и реализовала интерьеры более 40 заведений в Нижнем Новгороде. и не только. </p>
+                                                <p>Наверняка вы бывали в них не раз. Можете по карте найти наши объекты и посетить.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class="map-cities">
+                                        <div class="map-cities-cont">
+                                            <div class="map-cities__item active" data-aos="fade-up">
+                                                <h4>Нижний Новгород</h4>
+                                            </div>
+                                            <div class="map-cities__item" data-aos="fade-up">
+                                                <h4>Москва</h4>
+                                            </div>
+                                            <div class="map-cities__item" data-aos="fade-up">
+                                                <h4>Барселона</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cols__vis">
+                                <div class="cols-vis" data-aos="fade-up">
+                                    <div class="map-shadow"></div>
+                                    <div class="map" id="map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container container_clients">
+                    <div class="cols">
+                        <div class="cols-cont">
+                            <div class="cols__info">
+                                <div class="cols-info">
+                                    <div class="title cols-info__title" data-aos="fade-up">
+                                        <h2 class="h1">Нам <br>доверяют</h2>
+                                    </div>
+                                    <div class="cols-info__text" data-aos="fade-up">
+                                        <article>
+                                            <div class="article">
+                                                <p>За время своего существования наша студия разработала и реализовала интерьеры более 40 заведений в Нижнем Новгороде. и не только. </p>
+                                                <p>Наверняка вы бывали в них не раз. Можете по карте найти наши объекты и посетить.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class="arlink" data-aos="fade-up">
+                                        <a href="contacts.html" class="arlink-cont">
+                                            <div class="arlink__txt">
+                                                <span>Связаться с нами</span>
+                                            </div>
+                                            <div class="arlink__ar">
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cols__vis">
+                                <div class="cols-vis">
+                                    <div class="clients">
+                                        <div class="clients-cont">
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-1.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-2.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-3.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-4.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-5.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-6.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-7.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-8.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-9.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-10.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-11.png" alt="">
+                                            </a>
+                                            <a href="#" target="_blank" class="clients__item" data-aos="fade-up">
+                                                <img src="./img/client-12.png" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cross-bg"></div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container container_endform">
+                    <div class="cols">
+                        <div class="cols-cont">
+                            <div class="cols__info">
+                                <div class="endform-dscr">
+                                    <div class="title cols-info__title">
+                                        <h2 class="h1">На связи</h2>
+                                    </div>
+                                    <div class="cols-info__text">
+                                        <article>
+                                            <div class="article">
+                                                <p>Наш офис находится в Нижнем Новгороде, но мы с легкостью можем вести проекты в Москве или, к примеру, в Барселоне.</p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class="endform-dscr__adress">
+                                        <h4>Нижний Новгород <br>ул. Рождественская, 11—13/7</h4>
+                                    </div>
+                                    <div class="endform-dscr__mail">
+                                        <a href="#">info@art-cross.ru</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cols__vis">
+                                <div class="cols-vis">
+                                    <div class="endform-fields">
+                                        <div class="title cols-info__title">
+                                            <h2 class="h1">Есть проект?</h2>
+                                        </div>
+                                        <form action="" method="">
+                                            <fieldset>
+                                                <div class="form-fields">
+                                                    <div class="inputs-wrap">
+                                                        <div class="input-wrap">
+                                                            <input type="text" placeholder="Как вас зовут?">
+                                                        </div>
+                                                        <div class="input-wrap">
+                                                            <input type="text" placeholder="Ваш email или телефон">
+                                                        </div>
+                                                    </div>
+                                                    <div class="textarea-wrap">
+                                                        <textarea name="" id="" placeholder="Пару слов о проекте"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-button">
+                                                    <button class="btn btn_ar" type="submit">
+                                                        <span>Отправить</span>
+                                                    </button>
+                                                    <div class="form-agree">
+                                                        <span>Нажимая на кнопку «Отправить» вы подтверждаете свое <br><span class="pp_" data-pp="agree">согласие</span> на обработку персональных данных</span>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="circlogo-bg"></div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="bottom-containers">
+                    <div class="container container_bg-link" role="banner" style="background: url('./img/bg-link-about.jpg') no-repeat center;">
+                        <a href="about.html"></a>
+                        <div class="bg-link">
+                            <div class="bg-link__title">
+                                <h2>Немного <br>о студии</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="totop">
+            <span>Наверх</span>
+        </div>
+
+    </div>
+
+    <div class="pp pp_agree" data-pp="agree">
+        <div class="pp-bg"></div>
+        <div class="pp-cross"></div>
+        <div class="pp-container">
+            <div class="pp-content">
+                <div class="pp__title">
+                    <h3>Согласие посетителя сайта на обработку персональных данных</h3>
+                </div>
+                <div class="pp__articles">
+                    <article>
+                        <div class="article">
+                            <p>Настоящим я подтверждаю, что переданные мной в ООО «Архистратиг» (далее – Общество), персональные данные: имя, фамилия, отчество, место проживания, номер мобильного телефона, адрес электронной почты являются достоверными и могут обрабатываться Обществом и его уполномоченными представителями с целью предоставления мне информации о продуктах и услугах Общества.</p>
+                            <p>Настоящим я даю согласие Обществу (603159, г.Нижний Новгород, ул.Карла Маркса, д.12, кв.82, ОГРН 1125257004839) и его уполномоченным представителям на обработку моих персональных данных, указанных на сайте art-cross.ru (далее – Сайт), на любое действие (операцию) или совокупность действий (операций), совершаемых с моими персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных с использованием средств автоматизации, в том числе в информационно-телекоммуникационных сетях, а также на передачу (в том числе трансграничную) этих персональных данных уполномоченным представителям Общества.</p>
+                            <p>Настоящим я даю согласие на размещение своего мнения о применении продукции Общества и моих вопросов на Сайте. Также даю свое согласие на предоставление Обществом моих персональных данных как посетителя Сайта партнерами, с которыми сотрудничает Общество.</p>
+                            <p>Согласие дается сроком на 5 лет и может быть в любой момент мной отозвано путем направления письменного уведомления Общества по адресу: 603159, г.Нижний Новгород, ул.Карла Маркса, д.12, кв.82</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="pp__button">
+                    <div class="btn btn_cross">
+                        <span>Закрыть</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,203 @@
+<krpano>
+
+<plugin name="data" keep="true"/>
+
+<action name="gallery">
+  set(photoURL,'get(pic%1.photo[photo_0].url)');
+  set(photoCount,'get(pic%1.photo.count)');
+  set(pictureName,'get(pic%1.photo[get(_name)].url)');
+  set(photoName,'set(layer[gallery_photo].url, get(pic%1.photo[get(_name)].url))');
+  if(photoCount == 1, 
+		set(layer[gallery_btn_next].visible,false);
+		,
+		set(layer[gallery_btn_next].visible,true);
+		);
+
+
+</action>
+
+<layer name="gallery_bg" url="%SWFPATH%/plugins/textfield.swf" keep="true" parent="STAGE" visible="false" zorder="5" align="lefttop" width="100%" height="100%" backgroundalpha="0.9" backgroundcolor="0x000000" selectable="false" >
+
+</layer>
+<layer name="gallery_close" url="%SWFPATH%/plugins/photogallery/skin/txtclose.png" visible="false" keep="true" parent="STAGE" align="righttop" scale="0.5" x="10" zorder="100" onover="tween(scale, 0.6,0.1);" onout="tween(scale, 0.5,0.1);" onclick="hide_gallery();" onloaded="if(device.mobile,mul(scale,2));" />
+
+<layer name="gallery_btn_next" url="%SWFPATH%/plugins/photogallery/skin/strip_buttons_gallery.png" keep="true" parent="STAGE" alpha="1" visible="false" crop="0|0|300|300" edge="left" x="50" zorder="60" scale="0.5" ondown="next_pic();" />
+
+<layer name="gallery_btn_next_touch" url="%SWFPATH%/plugins/textfield.swf" keep="true" parent="STAGE" alpha="0" visible="false" align="righttop" height="100%" backgroundalpha="0" width="get(stagetouchwidth)" zorder="70" x="60" y="0" selectable="false" ondown="next_pic();" />
+
+<layer name="gallery_btn_prev" url="%SWFPATH%/plugins/photogallery/skin/strip_buttons_gallery.png" keep="true" parent="STAGE" alpha="1" visible="false" crop="0|300|300|300" edge="right" x="50" zorder="60" scale="0.5" ondown="previous_pic();" />
+
+<layer name="gallery_btn_prev_touch" url="%SWFPATH%/plugins/textfield.swf" keep="true" parent="STAGE" alpha="0" visible="false" align="lefttop" height="100%" backgroundalpha="0" width="get(stagetouchwidth)" zorder="70" x="60" y="0" selectable="false" ondown="if(j GT 0, previous_pic());" />
+
+	
+
+<action name="show_gallery">
+	set(layer[gallery_bg].visible,true);
+	open_gallery_engine();
+	if(layer[gallery_bg].visible == true, gallery_size(); );
+</action>
+
+<action name="hide_gallery">
+	set(layer[gallery_bg].visible,false);
+	set(layer[gallery_photo].visible,false);
+	set(layer[gallery_photo_bg].visible,false);
+	set(layer[gallery_btn_next].visible, false); 						
+	set(layer[gallery_btn_prev].visible, false); 						
+	set(layer[gallery_btn_next_touch].visible, false);
+	set(layer[gallery_btn_prev_touch].visible, false);
+	set(layer[gallery_close].visible,false);
+</action>
+
+
+<action name="open_gallery_engine">
+
+	addlayer(gallery_photo);
+	
+		set(layer[gallery_photo].url, get(photoURL)); 						
+		set(layer[gallery_photo].alpha,0); 						
+		set(layer[gallery_photo].visible, true); 						
+		set(layer[gallery_photo].parent, STAGE); 						
+		set(layer[gallery_photo].enabled, false); 						
+		set(layer[gallery_photo].align, center);
+		set(layer[gallery_photo].zorder, 100);
+		set(layer[gallery_photo].x, 0);
+		set(layer[gallery_photo].y, 0);
+		set(layer[gallery_photo]._index, 0 );
+		set(layer[gallery_photo].onloaded, set(layer[gallery_photo].width, get(layer[gallery_photo].imagewidth));set(layer[gallery_photo].height, get(layer[gallery_photo].imageheight));gallery_size(); ); 
+		set(layer[gallery_close].visible,true);
+	
+</action>
+
+
+<action name="gallery_size">
+	if(device.tablet, if(stagewidth LT stageheight, mul(stH, get(stageheight), 0.45);, mul(stH, get(stageheight), 0.7); ); ); 	
+	if(device.mobile, if(stagewidth LT stageheight, mul(stH, get(stageheight), 0.45);, mul(stH, get(stageheight), 0.7); ); ); 	
+	if(device.desktop, if(stagewidth LT stageheight, mul(stH, get(stageheight), 0.9);, mul(stH, get(stageheight), 0.9); ); ); 	
+		
+ 	div(tmp_rat, get(layer[gallery_photo].imageheight), get(stH));	
+	div(photo_width, get(layer[gallery_photo].imagewidth),get(tmp_rat));
+	set(layer[gallery_photo].height, get(stH));
+	set(layer[gallery_photo].width, prop);
+
+	add(photowi, get(photo_width),20);
+	add(photohe, get(layer[gallery_photo].height),20);
+		
+	addlayer(gallery_photo_bg);
+	
+		set(layer[gallery_photo_bg].url, %SWFPATH%/plugins/textfield.swf); 						
+		set(layer[gallery_photo_bg].alpha,0); 						
+		set(layer[gallery_photo_bg].visible, false); 						
+		set(layer[gallery_photo_bg].parent, STAGE); 						
+		set(layer[gallery_photo_bg].enabled, false); 						
+		set(layer[gallery_photo_bg].align, center);
+		set(layer[gallery_photo_bg].zorder, 50);
+		set(layer[gallery_photo_bg].height, get(photohe));
+		set(layer[gallery_photo_bg].width, get(photowi));
+		set(layer[gallery_photo_bg].x, 0);
+		set(layer[gallery_photo_bg].y, 0);
+			
+
+	gallery_buttons();
+
+	set(layer[gallery_photo].alpha,1); 	
+	set(layer[gallery_photo_bg].alpha,1); 						
+	wait(0.001);		
+	set(layer[gallery_photo_bg].visible, true); 						
+				
+</action>
+
+
+<events onresize="if(layer[gallery_bg].visible == true, gallery_size(); );" /> 
+ 
+
+<action name="gallery_buttons">
+
+	mul(stH,get(stageheight),0.6);
+
+	sub(tmp_stW, get(stagewidth),get(photowi));
+	div(tmp2_stW, get(tmp_stW),2);	
+	add(stW, get(tmp2_stW),70);	
+	
+	set(k, get(layer[gallery_photo]._index));
+	sub(tmp_count,get(photoCount),2);
+		
+	if(k LE tmp_count, 
+		if(stageheight GT stagewidth, 							
+			set(layer[gallery_btn_next].align, bottom);		
+			set(layer[gallery_btn_next].x, 100);
+			set(layer[gallery_btn_next].y, 100);
+	
+		,
+			set(layer[gallery_btn_next].align, right);
+			set(layer[gallery_btn_next].x, get(stW));		
+			set(layer[gallery_btn_next].y, 0);
+		);	
+	
+	
+		div(tmpstgwi, get(stagewidth),2);
+		sub(stagetouchwidth, get(tmpstgwi),60);	
+	
+	);
+	
+	
+	set(j, get(layer[gallery_photo]._index));
+	if(j GT 0,
+	
+		if(stageheight GT stagewidth, 							
+			set(layer[gallery_btn_prev].align, bottom);		
+			set(layer[gallery_btn_prev].x, -100);
+			set(layer[gallery_btn_prev].y, 100);
+		,
+			set(layer[gallery_btn_prev].align, left);
+			set(layer[gallery_btn_prev].x, get(stW));
+			set(layer[gallery_btn_prev].y, 0);			
+		);	
+		
+	);
+
+</action>
+
+ 
+<action name="next_pic" >
+
+	set(i, get(layer[gallery_photo]._index));
+	sub(tmp_count,get(photoCount),2);	
+	if(i == tmp_count, set(layer[gallery_btn_next].visible,false)	);
+	inc(i);	
+	if(i GT 0, set(layer[gallery_btn_prev].visible, true);set(layer[gallery_btn_prev_touch].visible, true);
+ );
+	if(i LT photoCount, 
+		txtadd(_name, 'photo_', get(i));		
+		photoName();
+		set(layer[gallery_photo]._index, get(i));
+		set(layer[gallery_photo_bg].visible, false); 						
+			
+	);	
+	
+</action>	
+
+
+<action name="previous_pic" >
+
+	set(i, get(layer[gallery_photo]._index));
+	
+	if(i == 1,
+		set(layer[gallery_btn_prev].visible, false);
+		,
+		set(layer[gallery_btn_prev].visible, true);
+	);
+	
+	
+	if(i GE 1, dec(i);set(layer[gallery_btn_next].visible, true); );
+	
+	if(i LT photoCount, 
+		txtadd(_name, 'photo_', get(i));		
+		photoName();
+		set(plugin[gallery_photo]._index, get(i));	
+			set(layer[gallery_photo_bg].visible, false); 						
+						
+	);
+
+</action>	
+
+</krpano>
