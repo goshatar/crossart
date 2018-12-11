@@ -69,16 +69,15 @@ $( document ).ready(function() {
 
         onEnter: function() {
 
-            $('.menu__proj').removeClass('hiddenonpage');
             $('.menu-logo').css('pointer-events', 'none');
 
         },
         onEnterCompleted: function() {
 
-            setTimeout(function () {
-                initMap();
-            }, 500);
 
+            $('head').append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZEMWmP3G1NHuo9dpC8lmnvqHPmVSVxrE&callback=initMap" async="" defer="" id="wewe"></script>');
+
+            $('.menu__proj').removeClass('hiddenonpage');
 
 
             // special-script --- start
@@ -239,8 +238,6 @@ $( document ).ready(function() {
 
                     var erer = $('.container_tasty .projs-card').width() + 32;
                     var rtrt = $('.container_tasty .projs-card').length;
-                    // console.log(erer);
-                    // console.log(rtrt);
                     var widtho = erer*rtrt;
                     $('.cols__vis_projs').css('width', widtho);
 
@@ -313,11 +310,37 @@ $( document ).ready(function() {
             $('.swiper-container.galls-slider-r .swiper-pagination-bullet').html(circle);
 
 
+            // map - cities
+
+            $(".map-cities__item").click(function () {
+                $(".map-cities__item").removeClass('active');
+                $(this).addClass('active');
+            });
+
+
+            //  hide projs on mainpage
+
+            $(window).scroll(function() {
+                if (window.pageYOffset >= 100) {
+                    $('.menu__proj').addClass('hidden');
+                } else {
+                    $('.menu__proj').removeClass('hidden');
+                }
+            });
+            if (window.pageYOffset >= 100) {
+                $('.menu__proj').addClass('hidden');
+            } else {
+                $('.menu__proj').removeClass('hidden');
+            }
+
+
             // special-script --- end
 
 
         },
         onLeave: function() {
+
+            $('script[src^="https://maps.googleapis.com"]').remove();
 
 
         },
@@ -337,6 +360,88 @@ $( document ).ready(function() {
         },
         onEnterCompleted: function() {
 
+            // фильтр проектов
+
+            var projsFilter = function(){
+
+                var $listToFilter = $('#projs-cards');
+                var $allElements = $listToFilter.find('.projs-card_filt');
+                var filterCache = {};
+
+                function filterElements (filterClass) {
+
+                    var $elemetnsToFilter;
+
+                    if(filterCache.hasOwnProperty(filterClass)) {
+                        $elemetnsToFilter = filterCache[filterClass];
+                    } else {
+                        $elemetnsToFilter = $listToFilter.find('.projs-card_filt[data-projs="' + filterClass + '"]');
+                        filterCache[filterClass] = $elemetnsToFilter;
+                    }
+
+                    $elemetnsToFilter.css('display', 'block');
+
+                }
+
+                $('#projs-tags .projs-tags__item').click(function () {
+
+                    var filterClass = $(this).attr('data-projs');
+
+                    $(this).toggleClass('active');
+
+                    $('.projs-card_filt').addClass('hide');
+                    setTimeout(function () {
+                        $('.projs-card_filt').removeClass('hide');
+                    }, 600);
+
+                    if ($(this).hasClass('projs-tags__item_all')) {
+
+                        setTimeout(function () {
+                            $('.projs-card_filt').show();
+                        }, 500);
+
+                        if ($(this).hasClass('active')) {
+
+                            $('.projs-tags__item').removeClass('active');
+                            $(this).addClass('active');
+
+                        } else {
+
+                            $(this).addClass('active');
+                        }
+
+                    } else {
+
+                        $('.projs-tags__item_all').removeClass('active');
+
+                        if ($(this).hasClass('active')) {
+
+                            if ($('.projs-tags__item.active').length == 1) {
+
+                                setTimeout(function () {
+                                    $('.projs-card_filt').hide();
+                                    filterElements(filterClass);
+                                }, 500);
+
+                            } else {
+
+                                setTimeout(function () {
+                                    filterElements(filterClass);
+                                }, 500);
+                            }
+
+                        } else {
+
+                            setTimeout(function () {
+                                $('.projs-card_filt[data-projs="' + filterClass + '"]').hide();
+                            }, 500);
+                        }
+                    }
+                });
+
+                $('.projs-card_filt').css('display', 'block');
+            }
+            projsFilter();
 
         },
         onLeave: function() {
@@ -360,11 +465,22 @@ $( document ).ready(function() {
         },
         onEnterCompleted: function() {
 
+
+            // fancybox
+
             $('.fancy').fancybox({
                 padding:0,
                 openEffect: 'fadeIn'
             });
 
+
+            // 3d tour
+
+            $('.proj-3d').click(function(){
+                if(!$('#iframe').length) {
+                    $('.pp-container-3d').html('<iframe src="./tour/index.html" frameborder="0"></iframe>');
+                }
+            });
 
         },
         onLeave: function() {
@@ -414,9 +530,8 @@ $( document ).ready(function() {
         },
         onEnterCompleted: function() {
 
-            setTimeout(function () {
-                initMap();
-            }, 500);
+            $('head').append('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZEMWmP3G1NHuo9dpC8lmnvqHPmVSVxrE&callback=initMap" async="" defer="" id="wewe"></script>');
+
 
         },
         onLeave: function() {
@@ -461,6 +576,8 @@ $( document ).ready(function() {
 
         $('.menu-logo').css('pointer-events', 'visible');
         $('.menu__proj').addClass('hiddenonpage');
+
+        $('script[src^="https://maps.googleapis.com"]').remove();
 
     });
     Barba.Dispatcher.on('transitionCompleted', function(currentStatus, oldStatus, container) {

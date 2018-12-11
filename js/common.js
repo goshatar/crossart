@@ -36,12 +36,7 @@ $( document ).ready(function() {
 
 
 
-// map - cities
 
-    $(".map-cities__item").click(function () {
-        $(".map-cities__item").removeClass('active');
-        $(this).addClass('active');
-    });
 
 
 
@@ -176,23 +171,6 @@ $( document ).ready(function() {
 
 
 
-//  hide projs on mainpage
-
-    $(window).scroll(function() {
-        if (window.pageYOffset >= 100) {
-            $('.menu__proj').addClass('hidden');
-        } else {
-            $('.menu__proj').removeClass('hidden');
-        }
-    });
-    if (window.pageYOffset >= 100) {
-        $('.menu__proj').addClass('hidden');
-    } else {
-        $('.menu__proj').removeClass('hidden');
-    }
-
-
-
 
 
 // заполнение инпута
@@ -205,92 +183,6 @@ $( document ).ready(function() {
             $(this).addClass('val');
         }
     });
-
-
-
-// фильтр проектов
-
-    var projsFilter = function(){
-
-        var $listToFilter = $('#projs-cards');
-        var $allElements = $listToFilter.find('.projs-card_filt');
-        var filterCache = {};
-
-        function filterElements (filterClass) {
-
-            var $elemetnsToFilter;
-
-            if(filterCache.hasOwnProperty(filterClass)) {
-                $elemetnsToFilter = filterCache[filterClass];
-            } else {
-                $elemetnsToFilter = $listToFilter.find('.projs-card_filt[data-projs="' + filterClass + '"]');
-                filterCache[filterClass] = $elemetnsToFilter;
-            }
-
-            $elemetnsToFilter.css('display', 'block');
-
-        }
-
-        $('#projs-tags .projs-tags__item').click(function () {
-
-            var filterClass = $(this).attr('data-projs');
-
-            $(this).toggleClass('active');
-
-            $('.projs-card_filt').addClass('hide');
-            setTimeout(function () {
-                $('.projs-card_filt').removeClass('hide');
-            }, 600);
-
-            if ($(this).hasClass('projs-tags__item_all')) {
-
-                setTimeout(function () {
-                    $('.projs-card_filt').show();
-                }, 500);
-
-                if ($(this).hasClass('active')) {
-
-                    $('.projs-tags__item').removeClass('active');
-                    $(this).addClass('active');
-
-                } else {
-
-                    $(this).addClass('active');
-                }
-
-            } else {
-
-                $('.projs-tags__item_all').removeClass('active');
-
-                if ($(this).hasClass('active')) {
-
-                    if ($('.projs-tags__item.active').length == 1) {
-
-                        setTimeout(function () {
-                            $('.projs-card_filt').hide();
-                            filterElements(filterClass);
-                        }, 500);
-
-                    } else {
-
-                        setTimeout(function () {
-                            filterElements(filterClass);
-                        }, 500);
-                    }
-
-                } else {
-
-                    setTimeout(function () {
-                        $('.projs-card_filt[data-projs="' + filterClass + '"]').hide();
-                    }, 500);
-                }
-            }
-        });
-
-        $('.projs-card_filt').css('display', 'block');
-
-    }
-    projsFilter();
 
 
 
